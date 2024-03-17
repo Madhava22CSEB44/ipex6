@@ -1,0 +1,34 @@
+
+Madhava.k. Arun <madhava.k.arun17@gmail.com>
+20:35 (3 minutes ago)
+to me
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Word Occurrence Counter</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="sentenceInput" placeholder="Enter a sentence">
+<input type="text" id="wordInput" placeholder="Enter a word to find">
+
+<button id="countBtn">Count Occurrence</button>
+
+<div id="result"></div>
+
+<script>
+  $(document).ready(function(){
+    $("#countBtn").click(function(){
+      var sentence = $("#sentenceInput").val().toLowerCase();
+      var word = $("#wordInput").val().toLowerCase();
+      var regex = new RegExp("\\b" + word + "\\b", "g");
+      var count = (sentence.match(regex) || []).length;
+      $("#result").text("The word '" + word + "' occurs " + count + " time(s) in the sentence.");
+    });
+  });
+</script>
+
+</body>
+</html>
